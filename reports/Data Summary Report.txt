@@ -1,0 +1,27 @@
+Data Summary Report
+- Introdução: 
+Este relatório fornece uma visão geral dos dados de músicas obtidos a partir da API do Spotify. Ele inclui informações sobre a estrutura do conjunto de dados, tipos de dados presentes e os objetivos de uso pretendidos.
+
+- Fontes de Dados:
+Os dados foram obtidos a partir da API do Spotify, que oferece acesso a uma vasta gama de informações sobre músicas, artistas, álbuns e entre outros. As informações apresentadas foram filtradas.
+
+- Estrutura do Conjunto de Dados:
+O conjunto de dados contém as seguintes colunas:
+
+Nome da Coluna	Tipo de Dado	Descrição
+Nome	        String	        Título da música.
+Artista	        String	        Nome do artista ou dos artistas que executam a música.
+Álbum	        String	        Nome do álbum em que a música está incluída.
+Popularidade	Inteiro 	    Índice de popularidade da música, onde 100 é a mais popular.
+Duração (ms)	Inteiro	        Duração da música em milissegundos.
+
+- Objetivos de Uso:
+O conjunto de dados possui diversos objetivos de uso, incluindo, mas não se limitando a:
+
+Análise de Popularidade: Examinar quais músicas são mais populares, o que pode fornecer insights sobre tendências de consumo musical.
+Duração das Músicas: Analisar a duração média das músicas para entender padrões de produção musical.
+Recomendações Personalizadas: Utilizar os dados para criar um sistema de recomendação que sugere músicas baseadas em popularidade e características de outros usuários.
+Exploração de Colaborações Artísticas: Identificar e analisar as colaborações entre diferentes artistas e suas repercussões na popularidade das músicas.
+
+- Conclusão:
+O conjunto de dados apresenta uma visão rica sobre as músicas recomendadas pela API do Spotify, oferecendo uma base sólida para análises futuras. A compreensão da popularidade, duração e colaborações artísticas pode proporcionar valiosos insights para profissionais da indústria musical, pesquisadores e entusiastas.

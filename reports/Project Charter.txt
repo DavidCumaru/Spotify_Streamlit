@@ -1,0 +1,32 @@
+1. Título do Projeto
+Análise e Recomendação de Músicas com a API do Spotify
+
+2. Descrição do Projeto
+Este projeto visa explorar e analisar dados de músicas utilizando a API do Spotify. Através da coleta e análise de informações sobre popularidade, duração e características musicais, o projeto buscará desenvolver um sistema de recomendação que auxilie usuários na descoberta de novas músicas, além de fornecer insights valiosos para profissionais da indústria musical.
+
+3. Objetivos do Projeto
+Análise de Dados: Realizar uma análise aprofundada das músicas disponíveis na API do Spotify, com foco em suas características, como popularidade, duração, energia e outros atributos relevantes.
+Desenvolvimento de Sistema de Recomendação: Criar um sistema que recomenda músicas personalizadas para os usuários com base em suas preferências e no histórico de escuta.
+Relatório de Insights: Produzir um relatório detalhado com insights sobre as tendências musicais, incluindo informações sobre colaborações artísticas e popularidade das faixas.
+Interface do Usuário: Desenvolver uma aplicação web interativa utilizando Streamlit para que os usuários possam explorar as músicas e obter recomendações.
+
+4. Escopo do Projeto
+- Incluído:
+Coleta de dados utilizando a API do Spotify.
+Análise estatística dos dados coletados.
+Desenvolvimento de um sistema de recomendação de músicas.
+Criação de uma interface de usuário com funcionalidades interativas.
+Geração de um relatório de resumo e insights a partir da análise dos dados.
+- Excluído:
+Desenvolvimento de funcionalidades que não estejam diretamente relacionadas à recomendação de músicas (exemplo: gerenciamento de usuários).
+Integração com outras plataformas de streaming que não sejam o Spotify.
+
+5. Stakeholders do Projeto
+Gerente do Projeto: Responsável pela coordenação e gerenciamento geral do projeto.
+Desenvolvedor: Encarregados da implementação do sistema de recomendação e da aplicação web.
+Analista de Dados: Responsável pela coleta e análise dos dados, além da elaboração do relatório de insights.
+Usuários Finais: Pessoas que utilizarão a aplicação para descobrir novas músicas e receber recomendações.
+Profissionais da Indústria Musical: Artistas, produtores e executivos que poderão se beneficiar dos insights gerados pelo projeto.
+
+6. Cronograma do Projeto
+Será finalizado até o último dia de entrega do Projeto de Bloco: Ciência de Dados Aplicada
