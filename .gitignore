@@ -1,1 +1,3 @@
 notebooks/credencial.py
+notebooks/.cache
+notebooks/__pycache__

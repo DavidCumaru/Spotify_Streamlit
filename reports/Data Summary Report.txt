@@ -1,12 +1,18 @@
 Data Summary Report
 
-https://developer.spotify.com/documentation/web-api
-
 - Introdução: 
 Este relatório fornece uma visão geral dos dados de músicas obtidos a partir da API do Spotify. Ele inclui informações sobre a estrutura do conjunto de dados, tipos de dados presentes e os objetivos de uso pretendidos.
 
 - Fontes de Dados:
 Os dados foram obtidos a partir da API do Spotify, que oferece acesso a uma vasta gama de informações sobre músicas, artistas, álbuns e entre outros. As informações apresentadas foram filtradas.
+"https://developer.spotify.com/documentation/web-api"
+
+- Datasets
+data: Diretório destinado à coleta e armazenamento dos dados utilizados no projeto.
+env: Ambiente virtual configurado para gerenciar dependências e pacotes do dataset.
+models: Local onde serão desenvolvidos e treinados os modelos de machine learning.
+notebooks: Pasta destinada ao armazenamento dos datasets e notebooks utilizados para análise e experimentação.
+reports: Diretório que contém relatórios detalhados sobre as características e análises do dataset.
 
 - Estrutura do Conjunto de Dados:
 O conjunto de dados contém as seguintes colunas:
@@ -21,7 +27,7 @@ Duração (ms)	Inteiro	        Duração da música em milissegundos.
 - Objetivos de Uso:
 O conjunto de dados possui diversos objetivos de uso, incluindo, mas não se limitando a:
 
-Análise de Popularidade: Examinar quais músicas são mais populares, o que pode fornecer insights sobre tendências de consumo musical.
+Análise de Popularidade: Examinar quais músicas ou artistas são mais populares.
 Duração das Músicas: Analisar a duração média das músicas para entender padrões de produção musical.
 Recomendações Personalizadas: Utilizar os dados para criar um sistema de recomendação que sugere músicas baseadas em popularidade e características de outros usuários.
 Exploração de Colaborações Artísticas: Identificar e analisar as colaborações entre diferentes artistas e suas repercussões na popularidade das músicas.

@@ -33,8 +33,7 @@ def get_all_tracks(playlist_id):
         })
 
     return pd.DataFrame(track_data)
+
 df_tracks = get_all_tracks(playlist_id)
-
 df_tracks.to_csv('../data/playlist_dados.csv', index=False)
-
 print("Dados extraídos e salvos em 'data/playlist_dados.csv'")
