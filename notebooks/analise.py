@@ -6,9 +6,6 @@ import matplotlib.pyplot as plt
 import os
 
 def run_page():
-    st.title("Página 2 - parte2.py")
-    st.write("Conteúdo da Página 2.")
-
     @st.cache_data
     def load_data():
         data_path = '../data/playlist_dados.csv'

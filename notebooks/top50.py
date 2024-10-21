@@ -5,9 +5,6 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import credencial as creds
 
 def run_page():
-    st.title("Página 1 - my_app.py")
-    st.write("Conteúdo da Página 1.")
-
     client_credentials_manager = SpotifyClientCredentials(client_id=creds.client_id, client_secret=creds.client_secret)
     sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 

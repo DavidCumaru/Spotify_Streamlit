@@ -9,8 +9,8 @@ st.sidebar.title("Menu de Navegação")
 page = st.sidebar.selectbox("Escolha a página", ("Página 1", "Página 2"))
 
 if page == "Página 1":
-    my_app = importlib.import_module('my_app')
-    my_app.run_page()
+    top50 = importlib.import_module('top50')
+    top50.run_page()
 elif page == "Página 2":
-    mys_app = importlib.import_module('parte2')
-    mys_app.run_page()
+    analise = importlib.import_module('analise')
+    analise.run_page()
