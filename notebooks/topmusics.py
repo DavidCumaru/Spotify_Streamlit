@@ -5,12 +5,8 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import credencial as creds
 
 def run_page():
-    client_id = st.secrets["general"]["SPOTIFY_CLIENT_ID"]
-    client_secret = st.secrets["general"]["SPOTIFY_CLIENT_SECRET"]
-
-    # Configure o cliente do Spotify
-    client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
-    sp = Spotify(client_credentials_manager=client_credentials_manager)
+    client_credentials_manager = SpotifyClientCredentials(client_id=creds.client_id, client_secret=creds.client_secret)
+    sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
     playlist_id = '5PTle1rPTwJHvyuJiky9XQ'
 
     @st.cache_data
