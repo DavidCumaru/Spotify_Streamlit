@@ -13,6 +13,7 @@ env: Ambiente virtual configurado para gerenciar dependências e pacotes do data
 models: Local onde serão desenvolvidos e treinados os modelos de machine learning.
 notebooks: Pasta destinada ao armazenamento dos datasets e notebooks utilizados para análise e experimentação.
 reports: Diretório que contém relatórios detalhados sobre as características e análises do dataset.
+api_project: Local onde foram desenvolvida api com os dados salvos do dataset.
 
 - Estrutura do Conjunto de Dados:
 O conjunto de dados contém as seguintes colunas:

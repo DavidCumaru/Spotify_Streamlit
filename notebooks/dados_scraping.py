@@ -5,17 +5,25 @@ import pandas as pd
 import credencial as creds
 import os
 
+# Autenticação com a API do Spotify
 client_credentials_manager = SpotifyClientCredentials(client_id=creds.client_id, client_secret=creds.client_secret)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-playlist_id = '5PTle1rPTwJHvyuJiky9XQ'
+
+# Lista de playlists para adicionar ao dataset
+playlist_ids = [
+    '5PTle1rPTwJHvyuJiky9XQ',
+    '37i9dQZEVXbMDoHDwVN2tF',
+]
 
 def format_duration(ms):
+    """Converte a duração de milissegundos para minutos e segundos."""
     seconds = ms // 1000
     minutes = seconds // 60
     seconds = seconds % 60
     return f"{minutes}:{seconds:02d}"
 
 def get_all_tracks(playlist_id):
+    """Extrai todas as faixas de uma playlist do Spotify."""
     results = sp.playlist_tracks(playlist_id)
     tracks = results['items']
     track_data = []
@@ -34,6 +42,12 @@ def get_all_tracks(playlist_id):
 
     return pd.DataFrame(track_data)
 
-df_tracks = get_all_tracks(playlist_id)
-df_tracks.to_csv('../data/playlist_dados.csv', index=False)
-print("Dados extraídos e salvos em 'data/playlist_dados.csv'")
+# Coleta de dados de todas as playlists
+all_tracks = pd.DataFrame()
+for playlist_id in playlist_ids:
+    df_tracks = get_all_tracks(playlist_id)
+    all_tracks = pd.concat([all_tracks, df_tracks], ignore_index=True)
+
+# Salva os dados no CSV
+all_tracks.to_csv('../data/playlist_dados.csv', index=False)
+st.title("Dados extraídos e salvos em 'data/playlist_dados.csv'")
