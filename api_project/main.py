@@ -3,7 +3,6 @@ from pydantic import BaseModel
 import pandas as pd
 
 df = '../data/playlist_dados.csv'
-
 def save_data(data):
     try:
         data.to_csv(df, index=False)
