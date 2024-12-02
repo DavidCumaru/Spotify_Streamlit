@@ -1,19 +1,19 @@
 Data Summary Report
 
 - Introdução: 
-Este relatório fornece uma visão geral dos dados de músicas obtidos a partir da API do Spotify. Ele inclui informações sobre a estrutura do conjunto de dados, tipos de dados presentes e os objetivos de uso pretendidos.
+Este relatório fornece uma visão geral dos dados de músicas obtidos a partir da API do Spotify. Ele inclui informações sobre a estrutura do conjunto de dados, tipos de dados presentes e os objetivos de uso pretendidos. LLM utilizada é baseada no BERT (Bidirectional Encoder Representations from Transformers)
+A escolha de usar o modelo BERT para gerar embeddings e calcular similaridades oferece algumas vantagens e possibilidades em comparação com sistemas tradicionais de recomendação baseados em regras específicas como artista, banda ou música.
 
 - Fontes de Dados:
 Os dados foram obtidos a partir da API do Spotify, que oferece acesso a uma vasta gama de informações sobre músicas, artistas, álbuns e entre outros. As informações apresentadas foram filtradas.
 "https://developer.spotify.com/documentation/web-api"
 
 - Datasets
-data: Diretório destinado à coleta e armazenamento dos dados utilizados no projeto.
+api_llm: Ambiente dedicado à implementação da FastAPI integrada com um modelo de linguagem (LLM).
+data: Diretório destinado à coleta, armazenamento e o tratamento dos dados utilizados no projeto.
 env: Ambiente virtual configurado para gerenciar dependências e pacotes do dataset.
-models: Local onde serão desenvolvidos e treinados os modelos de machine learning.
 notebooks: Pasta destinada ao armazenamento dos datasets e notebooks utilizados para análise e experimentação.
 reports: Diretório que contém relatórios detalhados sobre as características e análises do dataset.
-api_project: Local onde foram desenvolvida api com os dados salvos do dataset.
 
 - Estrutura do Conjunto de Dados:
 O conjunto de dados contém as seguintes colunas:
@@ -23,15 +23,16 @@ Nome	        String	        Título da música.
 Artista	        String	        Nome do artista ou dos artistas que executam a música.
 Álbum	        String	        Nome do álbum em que a música está incluída.
 Popularidade	Inteiro 	    Índice de popularidade da música, onde 100 é a mais popular.
-Duração (ms)	Inteiro	        Duração da música em milissegundos.
+Duração (ms)	String	        Duração da música em milissegundos.
+Genero          String	        Gênero(s) musical(is) ao qual a música pertence (ex.: Pop, Rock, Jazz).
 
 - Objetivos de Uso:
 O conjunto de dados possui diversos objetivos de uso, incluindo, mas não se limitando a:
 
 Análise de Popularidade: Examinar quais músicas ou artistas são mais populares.
 Duração das Músicas: Analisar a duração média das músicas para entender padrões de produção musical.
-Recomendações Personalizadas: Utilizar os dados para criar um sistema de recomendação que sugere músicas baseadas em popularidade e características de outros usuários.
+Recomendações Personalizadas: Utilizar os dados para criar um sistema de ele está sendo utilizado para calcular a similaridade entre embeddings para recomendar músicas com base em consultas do usuário.
 Exploração de Colaborações Artísticas: Identificar e analisar as colaborações entre diferentes artistas e suas repercussões na popularidade das músicas.
 
 - Conclusão:
-O conjunto de dados apresenta uma visão rica sobre as músicas recomendadas pela API do Spotify, oferecendo uma base sólida para análises futuras. A compreensão da popularidade, duração e colaborações artísticas pode proporcionar valiosos insights para profissionais da indústria musical, pesquisadores e entusiastas.
+O conjunto de dados apresenta uma visão rica sobre as músicas pela API do Spotify, oferecendo uma base sólida para análises futuras. A compreensão da popularidade, duração e colaborações artísticas pode proporcionar valiosos insights para profissionais da indústria musical, pesquisadores e entusiastas.

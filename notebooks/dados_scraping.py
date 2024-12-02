@@ -1,29 +1,41 @@
-import streamlit as st
+import streamlit as st 
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import pandas as pd
 import credencial as creds
 import os
 
-# Autenticação com a API do Spotify
+if not os.path.exists('../data'):
+    os.makedirs('../data')
+
 client_credentials_manager = SpotifyClientCredentials(client_id=creds.client_id, client_secret=creds.client_secret)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
-# Lista de playlists para adicionar ao dataset
+
 playlist_ids = [
     '5PTle1rPTwJHvyuJiky9XQ',
-    '37i9dQZEVXbMDoHDwVN2tF',
+    '3zHikRjMYsFLhz5KvgD6WS',
+    '2NkSAzNx0jU23xaeap1HGv',
 ]
 
 def format_duration(ms):
-    """Converte a duração de milissegundos para minutos e segundos."""
+    
     seconds = ms // 1000
     minutes = seconds // 60
     seconds = seconds % 60
     return f"{minutes}:{seconds:02d}"
 
+def get_artist_genres(artist_name):
+
+    results = sp.search(q=artist_name, type='artist', limit=1)
+    if results['artists']['items']:
+        artist = results['artists']['items'][0]
+        return artist['genres']
+    else:
+        return []
+
 def get_all_tracks(playlist_id):
-    """Extrai todas as faixas de uma playlist do Spotify."""
+    
     results = sp.playlist_tracks(playlist_id)
     tracks = results['items']
     track_data = []
@@ -32,22 +44,26 @@ def get_all_tracks(playlist_id):
         tracks.extend(results['items'])
     for item in tracks:
         track = item['track']
+        artist_names = ", ".join([artist['name'] for artist in track['artists']])
+        genres = []
+        for artist in track['artists']:
+            artist_genres = get_artist_genres(artist['name'])
+            genres.extend(artist_genres)
+        genres = ", ".join(set(genres))
+
         track_data.append({
             'Nome': track['name'],
-            'Artista': ", ".join([artist['name'] for artist in track['artists']]),
+            'Artista': artist_names,
             'Álbum': track['album']['name'],
             'Duração': format_duration(track['duration_ms']),
-            'Popularidade': track['popularity']
+            'Popularidade': track['popularity'],
+            'Gêneros': genres
         })
 
     return pd.DataFrame(track_data)
-
-# Coleta de dados de todas as playlists
 all_tracks = pd.DataFrame()
 for playlist_id in playlist_ids:
     df_tracks = get_all_tracks(playlist_id)
     all_tracks = pd.concat([all_tracks, df_tracks], ignore_index=True)
-
-# Salva os dados no CSV
 all_tracks.to_csv('../data/playlist_dados.csv', index=False)
 st.title("Dados extraídos e salvos em 'data/playlist_dados.csv'")

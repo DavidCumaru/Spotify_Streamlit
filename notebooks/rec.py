@@ -1,35 +1,35 @@
 import streamlit as st
 import requests
 
-API_URL = "http://127.0.0.1:8000/processar_texto"
+def run_page():
+    API_URL = "http://127.0.0.1:8000"
 
-st.title("Recomendação de musicas Streamlit com FastAPI")
-
-preferencias = st.text_input("Digite sua musica, banda ou cantor:")
-
-if st.button("Recomendar"):
-    if preferencias:
-        try:
-            st.write(f"Recomendações para pesquisa: {preferencias}")
-            response = requests.post(API_URL, json={"preferencias": preferencias})          
+    st.title("Recomendação de Músicas com BERT")
+    if "search_history" not in st.session_state:
+        st.session_state["search_history"] = []
+    query = st.text_input("Descreva uma música ou artista:")
+    if st.button("Buscar Recomendações"):
+        if query:
+            response = requests.get(f"{API_URL}/recommendations/{query}")
             if response.status_code == 200:
-                data = response.json()
-                recomendacoes = data.get("recomendacoes", [])              
-                if recomendacoes:
-                    st.subheader("Recomendações de Músicas:")
-                    for musica in recomendacoes:
-                        st.write(
-                            f"🎵 **Nome:** {musica['Nome']}\n"
-                            f"👤 **Artista:** {musica['Artista']}\n"
-                            f"💿 **Álbum:** {musica['Álbum']}\n"
-                            f"⏱️ **Duração:** {musica['Duração']}\n"
-                            f"⭐ **Popularidade:** {musica['Popularidade']}\n"
-                        )
-                else:
-                    st.write("Nenhuma recomendação encontrada para as suas preferências.")
+                recommended_songs = response.json()
+                st.write("Músicas recomendadas:")
+                for song in recommended_songs:
+                    st.write(f"**{song['Nome']}** - {song['Artista']} ({song['Álbum']})")
+                st.session_state["search_history"].append(
+                    {
+                        "query": query,
+                        "results": recommended_songs,
+                    }
+                )
             else:
-                st.write(f"Erro: {response.status_code} - {response.text}")
-        except Exception as e:
-            st.error(f"Erro ao se conectar com a API: {e}")
-    else:
-        st.warning("Por favor, insira suas preferências para recomendação.")
+                st.error("Erro ao buscar recomendações.")
+        else:
+            st.warning("Por favor, insira uma descrição para buscar recomendações.")
+    if st.session_state["search_history"]:
+        st.write("### Histórico de Consultas:")
+        for idx, history in enumerate(st.session_state["search_history"]):
+            st.write(f"**Consulta {idx + 1}:** {history['query']}")
+            st.write("**Resultados:**")
+            for song in history["results"]:
+                st.write(f"  - {song['Nome']} - {song['Artista']} ({song['Álbum']})")

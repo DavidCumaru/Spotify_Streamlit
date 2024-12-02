@@ -1,4 +1,6 @@
 notebooks/credencial.py
 notebooks/.cache
 notebooks/__pycache__/
+api_llm/__pycache__/
 des_projeto.txt
+env/

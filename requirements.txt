@@ -60,6 +60,7 @@ rpds-py==0.20.0
 safetensors==0.4.5
 scikit-learn==1.5.2
 scipy==1.14.1
+seaborn==0.13.2
 sentence-transformers==3.3.0
 setuptools==75.3.0
 six==1.16.0
