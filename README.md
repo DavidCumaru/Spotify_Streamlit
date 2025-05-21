@@ -40,9 +40,7 @@ Criar uma solução tecnológica que:
 | ODS | Nome                                 | Como o projeto contribui |
 |-----|--------------------------------------|---------------------------|
 | 4   | Educação de Qualidade                | Promove músicas educativas e contextos culturais |
-| 5   | Igualdade de Gênero                  | Destaca artistas mulheres e não-bináries |
-| 10  | Redução das Desigualdades            | Visibiliza artistas de minorias, periferias e regiões marginalizadas |
-| 16  | Paz, Justiça e Instituições Eficazes | Estimula consumo consciente e promove vozes silenciadas |
+
 
 ---
 
