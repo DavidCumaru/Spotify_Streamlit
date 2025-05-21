@@ -1,4 +1,4 @@
-# 🌎🎵 Music4Change – Recomendador e Analisador Musical c
+# 🌎🎵 Recomendador e Analisador Musical
 
 **Spotify_Streamlit** é uma plataforma inteligente de análise e recomendação musical que promove **inclusão, diversidade cultural e educação**, alinhada aos **Objetivos de Desenvolvimento Sustentável (ODS)** da **Agenda 2030 da ONU** e aos princípios de **ESG (Environmental, Social and Governance)**.
 
